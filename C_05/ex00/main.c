@@ -1,9 +1,9 @@
-#include <unistd.h>
+#include <stdio.h>
 
 int main(void)
 {
-    int ft_iterative_factorial(int nb);
+	int ft_iterative_factorial(int nb);
 
-    ft_iterative_factorial(5);
-    return (0);
-}  
+	printf("%i", ft_iterative_factorial(5));
+	return (0);
+}
