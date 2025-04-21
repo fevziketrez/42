@@ -4,9 +4,13 @@ int ft_iterative_factorial(int nb);
 {
     int temp;
 
-    temp = 1
-    while (nb > 1)
+    temp = 1;
+    if (nb < 0)
+        return (0);
+    while (0 < nb)
     {
-        temp = 1
+        temp *= nb;
+        nb -= 1; 
     }
+    return temp;
 }
