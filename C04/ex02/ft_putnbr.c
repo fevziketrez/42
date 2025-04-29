@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fketrez <fketrez@student.42istanbul.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 17:40:08 by fketrez           #+#    #+#             */
-/*   Updated: 2025/04/28 18:44:24 by fketrez          ###   ########.fr       */
+/*   Created: 2025/04/28 16:35:17 by fketrez           #+#    #+#             */
+/*   Updated: 2025/04/28 16:51:18 by fketrez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
+#include <unistd.h>
 
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (s1[i] && s2[i] && i < n)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (nb < 0)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		else if (n == i + 1)
-			return (0);
-		i++;
+		ft_putchar('-');
+		ft_putnbr(-nb);
 	}
-	return (s1[i] - s2[i]);
+	else if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putchar(nb % 10 + '0');
+	}
+	else
+		ft_putchar(nb % 10 + '0');
 }

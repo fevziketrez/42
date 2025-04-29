@@ -1,6 +1,6 @@
 int	ft_is_prime(int ab)
 {
-	int	i; //modulo 2-(ab-1) if == 0, return 0
+	int	i;
 
 	i = 2;
 	if (ab <= 1)
